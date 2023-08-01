@@ -4,10 +4,10 @@ import numpy as np
 
 
 class CustomExampleSelector(BaseExampleSelector):
-    
+
     def __init__(self, examples: List[Dict[str, str]]):
         self.examples = examples
-    
+
     def add_example(self, example: Dict[str, str]) -> None:
         """Add new example to store for a key."""
         self.examples.append(example)
@@ -17,27 +17,30 @@ class CustomExampleSelector(BaseExampleSelector):
         return np.random.choice(self.examples, size=2, replace=False)
 
 
+def main():
+    examples = [
+        {"foo": "1"},
+        {"foo": "2"},
+        {"foo": "3"}
+    ]
 
-examples = [
-    {"foo": "1"},
-    {"foo": "2"},
-    {"foo": "3"}
-]
+    # Initialize example selector.
+    example_selector = CustomExampleSelector(examples)
 
-# Initialize example selector.
-example_selector = CustomExampleSelector(examples)
-
-
-# Select examples
-output1 = example_selector.select_examples({"foo": "foo"})
-print(output1)
-
-
-# Add new example to the set of examples
-example_selector.add_example({"foo": "4"})
-print(example_selector.examples)
+    # Select examples
+    output1 = example_selector.select_examples({"foo": "foo"})
+    print(output1)
 
 
-# Select examples
-output2 = example_selector.select_examples({"foo": "foo"})
-print(output2)
+    # Add new example to the set of examples
+    example_selector.add_example({"foo": "4"})
+    print(example_selector.examples)
+    
+    # Select examples
+    output2 = example_selector.select_examples({"foo": "foo"})
+    print(output2)
+
+
+if __name__ == "__main__":
+    main()
+
