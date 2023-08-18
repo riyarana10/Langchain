@@ -2,18 +2,18 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
 from utilities import llm
 
-# memory = ConversationBufferMemory()
-# memory.save_context({"input": "hi"}, {"output": "whats up"})
-# print(memory.load_memory_variables({}))
+memory = ConversationBufferMemory()
+memory.save_context({"input": "hi"}, {"output": "whats up"})
+print(memory.load_memory_variables({}))
 
 
-# memory = ConversationBufferMemory(return_messages=True)
-# memory.save_context({"input": "hi"}, {"output": "whats up"})
+memory = ConversationBufferMemory(return_messages=True)
+memory.save_context({"input": "hi"}, {"output": "whats up"})
 
-# print("load memory varialble")
-# print(memory.load_memory_variables({}))
+print("load memory varialble")
+print(memory.load_memory_variables({}))
 
-# print("\n")
+print("\n")
 
 conversation = ConversationChain(
     llm=llm, 

@@ -1,0 +1,10 @@
+conversational buffer memory : it keeps a buffer of the pevious conversation.
+( the conversation buffer memory keeps the previous peices of conversations completely unmodified in a row form)
+
+advantages: 1 -> storing maximum data or information
+ 2-> simple approach
+
+ disadvantages: 1 -> storing all tokens which slows down the response time
+
+
+count_tokens : we are using this for counting the number of tokens for each calls.
